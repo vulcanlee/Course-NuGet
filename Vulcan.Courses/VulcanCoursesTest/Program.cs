@@ -9,6 +9,7 @@ namespace VulcanCoursesTest
         {
             Console.WriteLine(AsyncCourse.GetThreadPoolHint(true));
             Console.WriteLine(AsyncCourse.GetThreadPoolInfo(true));
+            Console.WriteLine(AsyncCourse.CurrentThreadId);
             AsyncCourse.PressAnyKey();
         }
     }
