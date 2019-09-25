@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vulcan.Courses", "Vulcan.Courses\Vulcan.Courses.csproj", "{1461A57C-7729-4003-8735-1504F5DFC5A0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VulcanCoursesTest", "VulcanCoursesTest\VulcanCoursesTest.csproj", "{99E390F8-0E37-4A56-A362-C76E91D09CC2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1461A57C-7729-4003-8735-1504F5DFC5A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1461A57C-7729-4003-8735-1504F5DFC5A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1461A57C-7729-4003-8735-1504F5DFC5A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1461A57C-7729-4003-8735-1504F5DFC5A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99E390F8-0E37-4A56-A362-C76E91D09CC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99E390F8-0E37-4A56-A362-C76E91D09CC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99E390F8-0E37-4A56-A362-C76E91D09CC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99E390F8-0E37-4A56-A362-C76E91D09CC2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C10B8FB-34FF-4C03-9CF2-FC5AB53D9076}
+	EndGlobalSection
+EndGlobal

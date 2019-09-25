@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>0.1.0</Version>
+    <Authors>Vulcan Lee 李進興</Authors>
+    <Description>.NET C# 相關課程會使用到的相關練習開發的共用 API</Description>
+    <Company />
+    <Product>程式開發課程的開發練習共用 API</Product>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/vulcanlee/Course-NuGet.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/vulcanlee/Course-NuGet</PackageProjectUrl>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+  </PropertyGroup>
+
+</Project>
