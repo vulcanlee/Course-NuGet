@@ -142,16 +142,16 @@ namespace Vulcan.Courses.XamarinForms.NaviServices
             }
             else if (navigateMode == NavigateMode.Master)
             {
-                if ((retriveMasterDetailPage == null) || (retriveMasterDetailNavigationPage == null))
-                {
-                    MasterDetailPage masterDetailPage = GenerateMasterDetailPageDelegate();
-                    masterDetailPage.Detail = GenerateNavigationPageDelegate(page);
-                    Application.Current.MainPage = masterDetailPage;
-                }
-                else
-                {
-                    await retriveMasterDetailNavigationPage.PushAsync(page);
-                }
+                //if ((retriveMasterDetailPage == null) )
+                //{
+                MasterDetailPage masterDetailPage = GenerateMasterDetailPageDelegate();
+                masterDetailPage.Detail = GenerateNavigationPageDelegate(page);
+                Application.Current.MainPage = masterDetailPage;
+                //}
+                //else
+                //{
+                //    retriveMasterDetailPage.Detail = GenerateNavigationPageDelegate(page);
+                //}
             }
             else
             {
