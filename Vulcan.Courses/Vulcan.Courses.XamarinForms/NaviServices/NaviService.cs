@@ -140,6 +140,10 @@ namespace Vulcan.Courses.XamarinForms.NaviServices
                     Application.Current.MainPage = GenerateNavigationPageDelegate(page);
                 }
             }
+            else if (navigateMode == NavigateMode.RestartRelative)
+            {
+                Application.Current.MainPage = GenerateNavigationPageDelegate(page);
+            }
             else if (navigateMode == NavigateMode.Master)
             {
                 //if ((retriveMasterDetailPage == null) )

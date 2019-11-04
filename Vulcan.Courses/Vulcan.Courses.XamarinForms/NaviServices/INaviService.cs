@@ -10,6 +10,7 @@ namespace Vulcan.Courses.XamarinForms.NaviServices
     {
         Absolute,
         Relative,
+        RestartRelative,
         Master
     }
     public interface INaviService

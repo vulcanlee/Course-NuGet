@@ -1,14 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Vulcan Lee 李進興</Authors>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Description>Xamarin.Forms 相關課程會使用到的相關練習開發的共用 API</Description>
     <PackageProjectUrl>https://github.com/vulcanlee/Course-NuGet</PackageProjectUrl>
     <RepositoryUrl>https://github.com/vulcanlee/Course-NuGet.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <AssemblyVersion>0.1.1.0</AssemblyVersion>
+    <FileVersion>0.1.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
