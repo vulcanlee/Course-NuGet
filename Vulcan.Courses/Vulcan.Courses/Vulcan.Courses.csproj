@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>0.1.6</Version>
+    <Version>0.1.7</Version>
     <Authors>Vulcan Lee 李進興</Authors>
     <Description>.NET C# 相關課程會使用到的相關練習開發的共用 API</Description>
     <Company />
