@@ -16,7 +16,7 @@
 
     <!-- Optional: Build symbol package (.snupkg) to distribute the PDB containing Source Link -->
     <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <!--<SymbolPackageFormat>snupkg</SymbolPackageFormat>-->
     
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/vulcanlee/Course-NuGet.git</RepositoryUrl>
