@@ -14,15 +14,6 @@ namespace Vulcan.Courses
         public static ThreadPoolInfo ThreadPoolInfo = new ThreadPoolInfo();
 
         /// <summary>
-        /// 按下任一按鍵以繼續
-        /// </summary>
-        public static void PressAnyKey()
-        {
-            Console.WriteLine("Press any key for continuing...");
-            Console.ReadKey();
-        }
-
-        /// <summary>
         /// 取得當前執行緒集區上的執行緒設定與數量資訊
         /// </summary>
         /// <returns></returns>
@@ -75,38 +66,38 @@ namespace Vulcan.Courses
             }
         }
 
-        /// <summary>
-        /// 取得呼叫同步或者非同步 API 的 Url
-        /// </summary>
-        /// <param name="addDto"></param>
-        /// <returns></returns>
-        public static string GetAddAPIUrl(ValueAddDto addDto)
+        public static string GetAddAPIUrl(int value1, int value2, int delayms, bool isAsync)
         {
             string url = "";
-            if (addDto.IsAsync)
-            {
-                url = ConstantHelper.AddSyncUrl;
-            }
-            else
+            if (isAsync)
             {
                 url = ConstantHelper.AddAsyncUrl;
             }
-            //public static readonly string AddSyncUrl = "https://lobworkshop.azurewebsites.net/api/values/AddSync/value1/value2/millisecond";
-            url = url.Replace("value1", addDto.Value1.ToString());
-            url = url.Replace("value2", addDto.Value2.ToString());
-            url = url.Replace("millisecond", addDto.DelayMillisecond.ToString());
+            else
+            {
+                url = ConstantHelper.AddSyncUrl;
+            }
+            url = url.Replace("value1", value1.ToString());
+            url = url.Replace("value2", value2.ToString());
+            url = url.Replace("millisecond", delayms.ToString());
             return url;
         }
 
-        /// <summary>
-        /// 取得呼叫 Web API 的 HTTP 非同步工作
-        /// </summary>
-        /// <param name="addDto"></param>
-        /// <returns></returns>
-        public static Task<string> GetHttpTask(ValueAddDto addDto)
+        public static List<string> GetAddAPIUrls(List<(int value1, int value2, int delayms, bool isAsyn)> addParas)
+        {
+            List<string> result = new List<string>();
+            for (int i = 0; i < addParas.Count; i++)
+            {
+                var item = addParas[i];
+                result.Add(GetAddAPIUrl(item.value1, item.value2, item.delayms, item.isAsyn));
+            }
+            return result;
+        }
+
+        public static Task<string> GetHttpTask(int value1, int value2, int delayms, bool isAsync)
         {
             HttpClient client = new HttpClient();
-            var task = client.GetStringAsync(GetAddAPIUrl(addDto));
+            var task = client.GetStringAsync(GetAddAPIUrl(value1, value2, delayms, isAsync));
             return task;
         }
 
@@ -122,70 +113,94 @@ namespace Vulcan.Courses
             return task;
         }
 
-        /// <summary>
-        /// 取得 URL 清單
-        /// </summary>
-        /// <param name="AddDtos"></param>
-        /// <returns></returns>
-        public static List<string> GetAddAPIUrls(List<ValueAddDto> AddDtos)
+        public static void Output(params (string content, CColor color)[] items)
         {
-            List<string> result = new List<string>();
-            foreach (var item in AddDtos)
+            ConsoleColor currentColor = Console.ForegroundColor;
+            foreach (var item in items)
             {
-                result.Add(GetAddAPIUrl(item));
+                Console.ForegroundColor =(ConsoleColor)(Enum.Parse(typeof(ConsoleColor), item.color.ToString()));
+                Console.Write(item.content);
             }
-            return result;
+            Console.ForegroundColor = currentColor;
+            Console.WriteLine();
         }
 
         /// <summary>
-        /// 取得 URL 清單
+        /// 按下任一按鍵以繼續
         /// </summary>
-        /// <param name="AddDtos"></param>
-        /// <returns></returns>
-        public static List<string> GetAddAPIUrls(ValueAddDto AddDto, int num)
+        public static void PressAnyKey()
         {
-            List<string> result = new List<string>();
-            for (int i = 0; i < num; i++)
-            {
-                result.Add(GetAddAPIUrl(AddDto));
-            }
-            return result;
-        }
-
-        /// <summary>
-        /// 取得呼叫 Web API 的 HTTP 非同步工作清單
-        /// </summary>
-        /// <param name="AddDtos"></param>
-        /// <returns></returns>
-        public static List<Task<string>> GetHttpTasks(List<ValueAddDto> AddDtos)
-        {
-            List<Task<string>> tasks = new List<Task<string>>();
-            foreach (var item in AddDtos)
-            {
-                HttpClient client = new HttpClient();
-                var task = client.GetStringAsync(GetAddAPIUrl(item));
-                tasks.Add(task);
-            }
-            return tasks;
-        }
-
-        /// <summary>
-        /// 取得呼叫 Web API 的 HTTP 非同步工作清單
-        /// </summary>
-        /// <param name="addDto"></param>
-        /// <param name="num"></param>
-        /// <returns></returns>
-        public static List<Task<string>> GetHttpTasks(ValueAddDto addDto, int num)
-        {
-            List<Task<string>> tasks = new List<Task<string>>();
-            for (int i = 0; i < num; i++)
-            {
-                HttpClient client = new HttpClient();
-                var task = client.GetStringAsync(GetAddAPIUrl(addDto));
-                tasks.Add(task);
-            }
-            return tasks;
+            Console.WriteLine("Press any key for continuing...");
+            Console.ReadKey();
         }
 
     }
+    public enum CColor
+    {
+        //
+        // 摘要:
+        //     The color black.
+        Black = 0,
+        //
+        // 摘要:
+        //     The color blue.
+        Blue = 9,
+        //
+        // 摘要:
+        //     The color cyan (blue-green).
+        Cyan = 11,
+        //
+        // 摘要:
+        //     The color dark blue.
+        DarkBlue = 1,
+        //
+        // 摘要:
+        //     The color dark cyan (dark blue-green).
+        DarkCyan = 3,
+        //
+        // 摘要:
+        //     The color dark gray.
+        DarkGray = 8,
+        //
+        // 摘要:
+        //     The color dark green.
+        DarkGreen = 2,
+        //
+        // 摘要:
+        //     The color dark magenta (dark purplish-red).
+        DarkMagenta = 5,
+        //
+        // 摘要:
+        //     The color dark red.
+        DarkRed = 4,
+        //
+        // 摘要:
+        //     The color dark yellow (ochre).
+        DarkYellow = 6,
+        //
+        // 摘要:
+        //     The color gray.
+        Gray = 7,
+        //
+        // 摘要:
+        //     The color green.
+        Green = 10,
+        //
+        // 摘要:
+        //     The color magenta (purplish-red).
+        Magenta = 13,
+        //
+        // 摘要:
+        //     The color red.
+        Red = 12,
+        //
+        // 摘要:
+        //     The color white.
+        White = 0xF,
+        //
+        // 摘要:
+        //     The color yellow.
+        Yellow = 14
+    }
+
 }
