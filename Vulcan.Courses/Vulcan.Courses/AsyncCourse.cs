@@ -125,6 +125,12 @@ namespace Vulcan.Courses
             Console.WriteLine();
         }
 
+        public static void ShowThreadInformation(string msg)
+        {
+            Output((msg, CColor.White),
+                ($" {AsyncCourse.CurrentThreadId}", CColor.Green));
+        }
+
         /// <summary>
         /// 按下任一按鍵以繼續
         /// </summary>

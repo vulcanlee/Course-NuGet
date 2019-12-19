@@ -19,6 +19,7 @@ namespace VulcanCoursesTest
                 (15,321,4000, true),
             });
             AsyncCourse.Output((url,CColor.Yellow), ("abcc", CColor.Red));
+            AsyncCourse.ShowThreadInformation("Test...");
             AsyncCourse.PressAnyKey();
         }
     }
